@@ -1,2 +1,2 @@
 # WebDevelopment
-This folder contains subfolders for different web pages.
+Web Development folder contains subfolders for different web pages.
