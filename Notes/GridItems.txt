@@ -22,7 +22,7 @@ html:
 	/*Each row and column has start line and end line. 
    Grid is responsive expand and collapse smoothly.
    | Header  | Main | Sidebar | Footer  -> line position start in left side ( | -> Line)
-   Starting position is 1.
+   Line starting position is 1.
    */
    
 	grid-column-start: 1; 
