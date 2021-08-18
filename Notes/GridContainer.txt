@@ -1,0 +1,95 @@
+/*
+html:
+<div class="container">
+  <div>Header</div>
+  <div>Main</div>
+  <div>Sidebar</div>
+  <div>Footer</div>
+</div>
+*/
+
+
+#CSS:
+
+.container{
+   display:grid; 
+   /*-> Creates rows for each element*/
+   
+   display:inline-grid; 
+   /*-> Create grid based on the max element size. That will not expand to entire screen*/
+   
+   grid-template-columns:  1fr; 
+   /*-> Create column. Takes absolute value(px), relative values (rem units), percentage(%) or mostly used fractions (fr).
+   	fr: takes the entire width.
+	If we use px which is smaller ttan the screen size, 
+	then we will have just column and lost row that expands to entire screen*/
+	
+   grid-template-columns:  1fr 1fr; 
+   /*-> creates two columns.
+					Header	Main
+					Sidebar	Footer */
+	
+	grid-template-columns:  1fr 1fr 1fr 1fr; 
+	/*-> Four column Header Main Sidebar Footer*/
+	
+	grid-template-columns: repeat(4, 1fr);
+	/* Short version of 1fr 1fr 1fr 1fr*/
+	
+	grid-template-rows: 100px 100px; 
+	/*-> Takes the same parameters as grid-template-columns. 
+	Two rows with 100px height*/
+	
+	grid-template-rows: repeat(3, 100px);
+	/* Short version of 100px 100px 100px*/
+	
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 100px 100px;
+	/*-> If we have 3 colums than grid will organize items (shift) automatically.
+	Header Main Sidebar  -> Evenly distributed in first row
+	Footer 				 -> Shifts to second row*/
+	
+	/**Gaps between items**/
+	column-gap: 10px;
+	row-gap: 20px;
+	gap: 10px; 		/*If one value is given, it applies for both row and column*/
+	gap: 10px 20px; /*First value is for row, second value is for column*/
+	
+	/**Align items**/
+	justify-items: center;
+	/*Line items in horizontal axes
+	center  -> Center items in grid with item size
+	start   -> Items in start position (on the left side of grid)
+	end	    -> Items in end position (on the right side of grid)
+	stretch -> Default setting. Fills the entire grid starting with (0,0) position.(Left top corner)
+	*/
+	
+	align-items: start;
+	/* Line items in vertical axes
+	center  -> Center items in row (top and bottom empty space is equal)
+	start   -> Stack to top
+	end     -> Down to bottom
+	stretch -> Default setting. Fills the entire grid starting with (0,0) position.(Left top corner) 
+	*/
+	
+	
+	place-items: center; /*Apply for both horizontal and vertical axes*/
+	place-items: center start; /*First value id for vertical, second value is for horizontal*/
+	/*->Short version of align-items and justify-items*/
+	
+	justify-content: space-between;
+	/*Position entire grid in screen. Applies when the grid is smaller than the actual container
+	grid-template-columns: repeat(3, 70px); -> In that situation grid will be smaller than the screen
+	grid-template-rows: 100px 100px;
+	
+	center  -> Center grid in screen
+	start   -> Grid in left side of screen
+	end	    -> Grid in right side of screen
+	space-between -> Put space between the elements
+	space-around -> Put space around each elements
+	space-evenly -> distribute elements nicely
+	stretch -> Default setting. Position grid starting from the left top corner
+	*/
+	
+   /*Each row and column has start line and end line. 
+   Grid is responsive expand and collapse smoothly.*/
+}
