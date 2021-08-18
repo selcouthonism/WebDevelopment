@@ -1,0 +1,88 @@
+/*
+html:
+<div class="container">
+  <div class="header">Header</div>
+  <div class="main">Main</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="footer">Footer</div>
+</div>
+*/
+
+
+#CSS:
+
+.container{
+   display:grid
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(3, 100px);
+   gap: 10px 20px;
+}
+
+.header{
+	/*Each row and column has start line and end line. 
+   Grid is responsive expand and collapse smoothly.
+   | Header  | Main | Sidebar | Footer  -> line position start in left side ( | -> Line)
+   Starting position is 1.
+   */
+   
+	grid-column-start: 1; 
+	/*Start from line 1
+	Header Main Sidebar Footer*/
+	
+	grid-column-start: 2;
+	/*Start from line 2 and shift other items. So Footer goes to second row.
+	If second row is not exist, grid creates the default one.
+			Header Main Sidebar  -> First column is empty
+	Footer
+	*/
+	
+	grid-column-start: 1; 
+	grid-column-end: 3;
+	/*Takes two columns. Define start and end line.*/
+	
+	grid-column-start: 1; 
+	grid-column-end: 5;
+	/*Takes the whole row*/
+	
+	grid-column: 1 / 5;
+	/*Short version of start - end */
+	
+	grid-column: 1 / span 4;
+	/*Span for 4 columns (takes four columns)*/
+	
+	grid-row-start:2;
+	/*Header starts in row two and other items shift to row 1.
+	Main 	Sidebar 	Footer
+	Header
+	*/
+	
+	grid-row-start:4;
+	/*In container class only 3 rows with 100px were created.
+	But now we want to put Header to forth row.
+	So grid creates another row automatically with the item height.
+	Header will be in row 4*/
+	
+	grid-row: 2 / span 4;
+	/*Start and end row lines */
+	
+	justify-self: center;
+	/*Works as justify-items in parent class.
+	Horizontal axes
+	Applies the setting to this item.
+	start  -> item in left side
+	end    -> item in right side
+	center -> item in center
+	stretch -> Default setting. Fills the cell.*/
+	
+	align-self: end;
+	/*Works as align-items in parent class.
+	Vertical axes*/
+	
+	place-self: end center;
+	/*Short version of justify-self and align-self.
+	first: vertical, second: horizontal*/
+}
+
+.main{
+	
+}
