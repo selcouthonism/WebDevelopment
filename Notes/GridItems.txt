@@ -22,7 +22,7 @@ html:
 	/*Each row and column has start line and end line. 
    Grid is responsive expand and collapse smoothly.
    | Header  | Main | Sidebar | Footer  -> line position start in left side ( | -> Line)
-   Line starting position is 1.
+   Starting position is 1.
    */
    
 	grid-column-start: 1; 
@@ -40,12 +40,13 @@ html:
 	grid-column-end: 3;
 	/*Takes two columns. Define start and end line.*/
 	
-	grid-column-start: 1; 
+	grid-column-start: 1;
 	grid-column-end: 5;
 	/*Takes the whole row*/
 	
 	grid-column: 1 / 5;
-	/*Short version of start - end */
+	/*Short version of start - end. 
+	First value is start line, second value is end line of column.*/
 	
 	grid-column: 1 / span 4;
 	/*Span for 4 columns (takes four columns)*/
@@ -63,7 +64,7 @@ html:
 	Header will be in row 4*/
 	
 	grid-row: 2 / span 4;
-	/*Start and end row lines */
+	/*Start at line 2 and span 4 row */
 	
 	justify-self: center;
 	/*Works as justify-items in parent class.
