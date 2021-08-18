@@ -92,4 +92,6 @@ html:
 	
    /*Each row and column has start line and end line. 
    Grid is responsive expand and collapse smoothly.*/
+   
+   /*Don't use grid system for one dimensional sections such as navbar */
 }
