@@ -1,0 +1,48 @@
+/*
+html:
+<div class="container">
+  <div class="header">Header</div>
+  <div class="main">Main</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="footer">Footer</div>
+</div>
+*/
+
+
+#CSS:
+
+.container{
+   display:grid
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(3, 100px);
+   gap: 10px 20px;
+   
+   grid-template-areas:
+	". 		header	header	header"
+	". 		main	main	sidebar"
+	". 		main	main	sidebar" /*To expand items for two rows */
+	"footer	footer	footer	footer"
+	
+	/*grid-template-areas: must be applied to parent*/
+}
+
+.header{
+	background-color:orange;
+	grid-area: header; /*Any name could be given.*/
+}
+
+.main{
+	background-color:lightblue;
+	grid-area: main;
+}
+
+.sidebar{
+	background-color:redbrick;
+	grid-area: sidebar;
+	
+}
+
+.footer{
+	background-color:green;
+	grid-area: footer;
+}
