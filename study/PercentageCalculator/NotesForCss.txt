@@ -1,0 +1,39 @@
+Notes:
+
+.container -> is a generic container class for each section.
+<div class="container">
+
+
+** One default standard container contains all rows and columns
+<div class="container">
+	<div class="row">
+		<div class="column">
+		</div>
+	</div>
+	<div class="row">
+		<div class="column">
+		</div>
+	</div>
+</div>
+
+ width:100%; -> Full display
+ margin: auto; -> Center the content in remaining space 
+ 
+ ** Flex only affects its direct children.
+ display:flex; -> flex as display changes (when screen size changed)
+ flex-wrap: wrap; -> we cann add this because we added display:flex. 
+					All the elements in this will be wrapped when it gets smaller.
+align-items: center; -> center the content in horizontal
+justify-content: center; -> center the content in vertical
+
+.row::after -> To start fresh everytime
+::after selector inserts something after the content of each selected elements.
+
+** Attribute selector
+input[type="submit"] -> Attribute selector is used to select elements with a specified attribute and value.
+
+<a href="http://www.disney.com" target="_blank">disney.com</a>
+a[target]  -> Attribute selector is used to select elements with a specified attribute.
+ 
+<img src="img_flwr.gif" title="flower">
+[title~=flower] -> Attribute selector is used to select elements with an attribute value containing a specified word.
