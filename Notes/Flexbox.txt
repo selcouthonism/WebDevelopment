@@ -1,0 +1,229 @@
+/*
+FlexboxFundementals.html covers the following properties.
+
+Flexbox is a layout mode. 
+It arranges items within container. (Position elements on page)
+Responsive and mobile friendly
+Used for small scale layouts
+
+--- Main Axes ---
+				|
+				|
+				|
+				Cross Axes
+				|
+				|
+				
+
+*** You	cannot add flex properties to items without having that display property in the parent.
+Applies to direct children.			
+*/
+
+/*html
+<div class="parent-1">
+	<div class="item-1">
+		<h3>Item One</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+	</div>
+	<div class="item-2">
+		<h3>Item Two</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+	</div>
+	<div class="item-3">
+		<h3>Item Three</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+	</div>
+</div>
+<div class="parent-2">
+	<div class="item-4">
+		<h3>Item Four</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+	</div>
+	<div class="item-4">
+		<h3>Item Five</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+	</div>
+	<div class="item-4">
+		<h3>Item Six</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+	</div>
+</div>
+<div class="img-container">
+	<img src="https://images.news18.com/ibnlive/uploads/2021/07/1627377451_nature-1600x900.jpg" alt="No Photo">
+	<img src="https://images.news18.com/ibnlive/uploads/2021/07/1627377451_nature-1600x900.jpg" alt="No Photo">
+	<img src="https://images.news18.com/ibnlive/uploads/2021/07/1627377451_nature-1600x900.jpg" alt="No Photo">
+	<img src="https://images.news18.com/ibnlive/uploads/2021/07/1627377451_nature-1600x900.jpg" alt="No Photo">
+	<img src="https://images.news18.com/ibnlive/uploads/2021/07/1627377451_nature-1600x900.jpg" alt="No Photo">
+	<img src="https://images.news18.com/ibnlive/uploads/2021/07/1627377451_nature-1600x900.jpg" alt="No Photo">
+</div>
+*/
+
+/********CSS*********/
+
+.parent-1 div{ /*-> Apply this property for all container div children*/
+	border: 1px solid #ccc;
+	padding:10px;
+}
+
+/*
+.parent-1{
+	border: 1px solid #ccc;
+	padding:10px;
+}
+If we define this properties only for parent class, It draws only one border on whole children
+|--------------------|
+| Item One Two Three |
+| -------------------|
+
+.parent-1 div -> draws border for all div tags.
+|---------|--------|----------|
+| Item One| Two    | Three    |
+| --------|--------|----------|
+
+*/
+
+.parent-1{ /*-> Apply this container property all div children*/	
+	/*No settings right now. So <div> tag stacks items on each other. 
+	div has display:block
+	Item One
+	Item Two
+	Item Three*/
+	
+	display:flex;
+	/*Flex property puts all items in one row. (In small screen size, items will be smaller)
+		Item One Item Two Item Three*/
+	
+	flex-direction:row;
+	/*All Items in the parent will be in one row. Side by side 
+		Item One Item Two Item Three*/
+	
+	flex-direction:column;
+	/*Items will stack on each other. Top by top.*/
+		
+	flex-direction:column-reverse;
+	/*Reverse the children direction
+		Item Three
+		Item Two
+		Item One*/
+		
+	/*display:flex as default distributes items evenly in the row
+	If we set width 25% for item 1,2 and 3, 
+	then there will be an empty area (last 25%) right-side of the screen. End of the items.*/
+	
+	
+	justify-content: flex-start;
+	/*Align items horizontally
+	When size of flex container (parent class) is smaller than the screen,
+	(Item's width is 25% and total 75%. But our screen is 100%. In that case container is smaller than the screen)
+	then we can align the whole items in the screen.
+	flex-start	-> Items on left
+	flex-end	-> Items on right
+	center		-> Items on center
+	*/
+	
+	align-items:flex-start;
+	/*Align items vertically (cross axes)
+	flex-start	-> Align items to top
+	flex-end	-> Align items to bottom
+	center		-> Align items to center
+	stretch		-> Defaut settings.  All items have same height.
+	space-around -> Put space around each item (space on left and right side)
+	space-between -> Put space between items
+	*/
+}
+
+parent-2{
+	display:flex;
+	justify-content:space-between;
+}
+
+/*
+*** For mobile version, flex will be stubborn and keep items in the same row. (smahing content)
+	To change this we need to write a media query which shifts items to new row when screen is small. 
+*/
+
+@media(ma-width:600px){
+	
+	parent-1{
+		display:block;
+	}
+	
+	parent-2{
+		display:block;
+	}
+}
+
+/*
+When screen size is less than 600 px, 
+media query will reset display and applies block property.
+So all items will be on top each other.
+*/
+
+
+
+.item-1{	
+	flex:2;
+	/*Dont use width and flex at the same time.
+	Flex divides screen evenly for all children.
+	When we set flex property to a child we say takes two space.
+	Flex sums the given flex value to children and divides accoording to given value.
+	If one child does not have a flex:1 property, 
+	then it will have its actual size and 
+	other children will be distributed according to value within the remained space.*/
+	
+	order:2;
+	/*Item one will be in second column. (In the middle)*/
+}
+
+.item-2{
+	/*width:25%;*/
+	flex:1;
+	order:3;
+}
+
+.item-3{
+	/*width:25%;*/
+	flex:1;
+	order:1;
+}
+
+.item-4{
+	flex-basis: 25%
+	/*Dont use width: 25%. It always takes 25% of screen size.
+	*** Use flex-basis: 25% to have mobile compatibility
+	flex-basis: 25%; 
+	In mobile version, we update the display:flex as display:block;
+	So items will stack on each other.
+	In that situation if we use width:25%, it will stack to left.
+	flex-basis: 25%;  will expand as 100% to screen in mobile state.
+	*/
+}
+
+.img-container {
+	display:flex;
+	justify-content:space-around;
+	
+	flex-wrap: wrap;
+	/*
+	flex-wrap is used to wrap images when screen size changed.
+	Without this property, images will stack in the same row.
+	With wrap -> Images will go down when screen size getting smaller.
+	Take the first element and stack it to top left.
+	1 - 2
+	3 - 4
+	5 - 6
+	*/
+	
+	flex-wrap: wrap-reverse;
+	/*
+	Take the first element and stack it bottom left.
+	5 - 6
+	3 - 4
+	1 - 2
+	*/
+}
+
+img{
+	width: 150px;
+	height:150px;
+}
