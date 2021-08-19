@@ -6,11 +6,12 @@ It arranges items within container. (Position elements on page)
 Responsive and mobile friendly
 Used for small scale layouts
 
---- Main Axes ---
+-----------Main Axes ------------
 				|
 				|
 				|
 				Cross Axes
+				|
 				|
 				|
 				
