@@ -1,0 +1,70 @@
+
+/* Specificity Rule 
+
+
+	Style Attribute, 	ID, 	Class,			Elements
+								Pseudo class, 		
+								Attribute
+								
+		1000			100			10				1					
+
+*/
+
+
+h1{color:red;}
+h1, h2{color:yellow;}
+
+/*If multiple selectors available, then CSS takes the last defined property.
+So h1 color will be yellow. */
+
+
+div h1{h1{color:red;} /* Specificity is 1 + 1 = 2 */
+h1{color:yellow;}	/* Specificity is 1*/
+
+/* h1 color will be red because div h1 has greater specificity */
+
+html  h1{h1{color:red;} 	/* Specificity is 1 + 1 = 2 */
+body  h1{h1{color:green;} /* Specificity is 1 + 1 = 2 */
+
+/* h1 color will be green 
+they have the same specificity so CSS will take the last one*/
+
+.container  h1{h1{color:red;} /* Specificity is 10 + 1 = 11  class + element*/
+div  h1{h1{color:green;}		/* Specificity is 1 + 1 = 2 	element + element*/
+
+/* h1 color will be red */
+
+#foo{ color:red; } 			/*Specificity is 100. ID selector specifity value is 100*/
+[id="foo"] {color:cyan;}	 	/*Specificity is 10. Attribute selector specifity value is 10*/
+.container h1{color: yellow;} /* Specificity is 10 + 1 = 11  class + element*/
+div h1{h1{color:green;}		/* Specificity is 1 + 1 = 2 	element + element*/
+
+/* h1 color will be red */
+/*html code
+<div class="container">
+	<h1 id="foo">Header</h1>  -----> color will be red
+</div>
+*/ 
+
+
+/*html code
+<div class="container">
+	<h1 style="color:orange;" id="foo">Header</h1>  -----> color will be orange
+</div>
+*/ 
+
+/*style="color:orange;" Style attribute has the highest specificity value 1000.
+So it dominates everything and makes h1 color orange*/
+
+
+h1{
+	color:blue !important;
+	line-height:1rem;
+}
+
+/*Dont use !important 
+Its hard to debug
+!important style rule overrides everything (every style rule)
+Onlu used for specific pages that use external library.
+Be specific for the element.
+*/
