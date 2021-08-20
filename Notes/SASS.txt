@@ -1,0 +1,145 @@
+/*
+	SASS: Syntactically Awesome Style Sheets
+	CSS extention language
+	Short hand for CSS, easy syntax
+	Featues : variables, mixins, extends, imports..
+	
+	SASS syntax is indent, SASSY CSS syntax is brackets and semicolons
+	Boostrapt uses SASS.
+	
+	CSS Preprocessors: Less and Sass
+	Sass preprocessor takes the SASS file and compiles it to CSS.
+	Beacuse browser only understand HTML, CSS and JS.
+	
+	To install SASS we need Ruby. MAC computers already have.
+	> sudo gem install sass
+	
+	Create index.html and styles.sass file.
+	
+	html:
+		<link rel="stylesheet" href="styles.css">
+	We still link css file in html. 
+	Because sass file will be converted to css,
+	and browser will read this styles.css file.
+	
+	Setup watcher to compile sass file. 
+	> sass --watch styles.sass:styles.css
+	
+	This watch creates styles.css file and updates it when we update sass file.
+*/
+
+/* html:
+<div class="thumb1">
+	<h1>Thumbs Up</h1>
+</div>
+<div>
+	<section>
+		<h2>Can you read this?</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+	</section>
+	<br>
+	<hr>
+	<br>
+	<section>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+	</section>
+	<div class="thumb2"></div>
+	<button class="btn-1">Touch to Sass</button>
+	<button class="btn-2">Sassy Css</button>
+</div>
+*/
+
+
+/** SASS Variables **/
+/* In sass, we can define variables and use it for styling. */
+$brand-main:	#6600CC
+$brand-sub:	#fddcfd
+$brand-dark:	#333
+$brand-light:	#E6F2FF
+
+
+
+/** Mixins **/
+/* We can think mixins as function. Describe a mixin name and give parameters.
+ Mixin start with = equal sign. */
+ 
+=shaping($height, $width, $rad, $bg, $color)
+	height:				$height
+	width:				$width
+	-webkit-border-radius: 	$rad
+	-moz-border-radius:	$rad
+	-ms-border-radius:	$rad
+	border-radius:		$rad
+	background-color:		$bg
+	color:				$color
+
+	/*border-radius is not compatible by all browsers*/
+
+=btn-main($padding, $rad, $bg, $color)
+	padding:			$padding
+	border-radius:	$rad
+	background-color:	$bg
+	color:			$color
+	bolder-width: 0
+	border-style: none
+	cursor: pointer
+	&hover:
+		background-color: lighten($brand-main, 20%)
+
+	/*We can also define properties in mixins*/	
+	/*lighten is a feature to used lighten with given percent
+	when cursor is on the button*/
+
+
+/** Styles **/
+body
+	background-color: $brand-light
+
+section
+	background-color:$brand-sub
+	color: $brand-dark
+	width: 780px
+	margin: auto 
+	padding: 20px
+	border-radius: 7px
+	position: relative
+	z-index: -2
+
+	/*position: relative and z-index: -2 
+	is used to put this section behind thumb1 (Thumbs Up)*/
+
+
+.thumb1
+	+shaping(120px, 120px, 10%, $brand-dark, $brand-light)
+	/*When call mixin,  put + (plus) before it.*/
+	
+	margin: 0 435px -90px
+	/*For now we used msrgin to position item. 
+	It is not used to position items, just used for creating small space outside of the item*/
+	
+.thumb2
+	+shaping(120px, 120px, 10%, $brand-dark, $brand-light)
+	margin: -50px  1310px
+
+.btn-1
+	+btn-main(15px 20px, 7px, $brand-main, white)
+	display:block
+	margin: auto
+	
+	/*padding can take more than variable, 
+	so we can assign more than one value to mixin as 15px 20px,
+	15px for top and bottom, 20px for right and left*/
+
+	
+.btn-2
+	+btn-main(30px 50px, 50%, $brand-dark, white)
+	display:block
+	margin: auto
+	font-size:2rem
+	&hover:
+		background-color: darken($brand-main, 20%)
+	
+	/*this hover feature overrides the btn-main hover 
+	and makes button darker when cursor is on the button*/
