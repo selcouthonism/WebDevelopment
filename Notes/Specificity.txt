@@ -2,11 +2,11 @@
 /* Specificity Rule 
 
 
-	Style Attribute, 	ID, 	Class,			Elements
+	Style Attribute, 		ID, 			Class,			Elements
 								Pseudo class, 		
 								Attribute
 								
-		1000			100			10				1					
+	    1000			100			  10			   1					
 
 */
 
@@ -18,25 +18,25 @@ h1, h2{color:yellow;}
 So h1 color will be yellow. */
 
 
-div h1{h1{color:red;} /* Specificity is 1 + 1 = 2 */
-h1{color:yellow;}	/* Specificity is 1*/
+div h1{h1{color:red;} 	/* Specificity is 1 + 1 = 2 */
+h1{color:yellow;}	/* Specificity is 1 */
 
 /* h1 color will be red because div h1 has greater specificity */
 
-html  h1{h1{color:red;} 	/* Specificity is 1 + 1 = 2 */
+html  h1{h1{color:red;} /* Specificity is 1 + 1 = 2 */
 body  h1{h1{color:green;} /* Specificity is 1 + 1 = 2 */
 
 /* h1 color will be green 
 they have the same specificity so CSS will take the last one*/
 
-.container  h1{h1{color:red;} /* Specificity is 10 + 1 = 11  class + element*/
-div  h1{h1{color:green;}		/* Specificity is 1 + 1 = 2 	element + element*/
+.container  h1{h1{color:red;} 	/* Specificity is 10 + 1 = 11  class + element*/
+div  h1{h1{color:green;}	/* Specificity is 1 + 1 = 2 	element + element*/
 
 /* h1 color will be red */
 
-#foo{ color:red; } 			/*Specificity is 100. ID selector specifity value is 100*/
-[id="foo"] {color:cyan;}	 	/*Specificity is 10. Attribute selector specifity value is 10*/
-.container h1{color: yellow;} /* Specificity is 10 + 1 = 11  class + element*/
+#foo{ color:red; } 		/*Specificity is 100. ID selector specifity value is 100*/
+[id="foo"] {color:cyan;}	/*Specificity is 10. Attribute selector specifity value is 10*/
+.container h1{color: yellow;} 	/* Specificity is 10 + 1 = 11  class + element*/
 div h1{h1{color:green;}		/* Specificity is 1 + 1 = 2 	element + element*/
 
 /* h1 color will be red */
