@@ -17,7 +17,7 @@
 	Create index.html and styles.sass file.
 	
 	html:
-		<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles.css">
 	We still link css file in html. 
 	Because sass file will be converted to css,
 	and browser will read this styles.css file.
