@@ -1,0 +1,97 @@
+html,body{
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style:normal;
+	font-variant:normal;
+	margin: 0;
+	padding: 0; /*Some browsers add default space to edges. We remove this space.*/
+}
+
+.navbar{
+	display:flex;
+	align-items:center;
+	background-color: #deedfb;
+	padding: 0 10%;
+	line-height:3rem;
+}
+
+.navbar ul{
+	list-style-type: none; /*Removes the bullets */
+}
+
+.brand{
+	color: #457e7d;
+	font-size: 20px;
+	/*flex:2;*/
+	margin-right:auto; /*Takes remaining spaces on the right side.*/
+	margin-bottom: auto;
+}
+
+.brand span{
+	color: #d26f1d;
+}
+
+.topnav{
+	display:flex; /*Display list items in the same row. Default direction is row. */
+	margin: 0;
+}
+
+.topnav li {
+	float: left; /*Display list items in the same row. Horizontally. */
+}
+
+.topnav li a{
+	text-decoration: none; /*Remove underline of text*/
+	padding: 0 15px;
+	color: #3d556b;
+}
+
+.menu-item:hover, .menu-item:focus {
+  text-shadow: 0px -1px #3d556b;
+  box-shadow: 0 0 1px 1px rgba(0, 140, 186, 0.5);
+}
+
+.drop-down-link{
+	display:none;
+}
+
+div.img-section {
+	display:flex;
+	justify-content: space-around;
+	margin: 5% 0;
+	padding: 0;
+	background-color: #E7E9EB;
+}
+
+.img-section img {
+	display:block;
+	width: 40%;
+    border-radius: 7px;
+}
+
+
+
+
+@media(max-width:768px){
+	.navbar{
+		padding: 0 1%;
+	}
+	
+	ul.topnav li.menu-item{
+		display: none;
+	}
+	
+	ul.topnav li.drop-down-link{
+		display: inline;
+		relative: absolute;
+	}
+	
+	ul.topnav.responsive{
+		flex-direction: column;
+		text-align: right;
+	}
+	
+	ul.topnav.responsive li.menu-item{
+		display: block;
+		order:2; /*Used to keep trigram at top.*/
+	}
+}
