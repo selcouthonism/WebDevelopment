@@ -3,8 +3,9 @@ Structure of page is: <br>
 - Navbar
 - Image Slider
 - Content
-- Footer (For social media icons -> Font Awesome)
+- Footer
 
 Note: Link has been used for images and size has been changed in css.
 Best practice to reduce page loading time, crop images with paint or some other tool to wanted size before using them in html. <br>
-(Reduce image size)
+(Reduce image size) <br>
+Footer: For social media icons -> Font Awesome (https://fontawesome.com/v5.15/icons?d=gallery&p=2)
