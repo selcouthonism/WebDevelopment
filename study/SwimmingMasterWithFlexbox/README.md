@@ -5,5 +5,5 @@ Structure of page is: <br>
 - Content
 - Footer
 
-Note: Link has been used for images and size has beeb changed in css.
+Note: Link has been used for images and size has been changed in css.
 Best practice to reduce page loading time, crop images with paint or some other tool to wanted size before using them in html.
