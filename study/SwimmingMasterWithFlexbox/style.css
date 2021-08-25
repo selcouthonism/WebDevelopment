@@ -36,7 +36,7 @@ html,body{
 }
 
 .topnav li {
-	float: left; /*Display list items in the same row. Horizontally. */
+	float: right; /*Display list items in the same row. Horizontally. */
 }
 
 .topnav li a{
