@@ -1,5 +1,5 @@
-There is two way to import boostrapt in project.
-1- Link CDN
+There is two way to import boostrapt in project. <br>
+1- Link CDN <br>
 2- Download css files to local and link local adreess.
 
 For more information look at Boostrapt Documentation (https://getbootstrap.com/docs/5.1/getting-started/introduction/)
