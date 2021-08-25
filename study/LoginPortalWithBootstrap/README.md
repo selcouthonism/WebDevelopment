@@ -5,4 +5,4 @@ There is two way to import bootstrap in project. <br>
 
 For more information look at Bootstrap Documentation (https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
-In this project, I have downloaded files and linked minified versions (bootstrap-grid.min.css, bootstrap.min.css, bootstrap.bundle.min.js) in html.
+CDN has been used in this project. 
