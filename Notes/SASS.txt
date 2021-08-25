@@ -26,6 +26,11 @@
 	> sass --watch styles.sass:styles.css
 	
 	This watch creates styles.css file and updates it when we update sass file.
+	
+	SASS compiler throws error when:
+	- Mistyped Variables
+	- Illegal nesting
+	- Improper syntax syntax used like {} or ;
 */
 
 /* html:
