@@ -4,4 +4,4 @@ There is two way to import boostrapt in project. <br>
 
 For more information look at Boostrapt Documentation (https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
-In this project, I have downloaded files and linked minified versions (boostrapt-grid.min.css and boostrapt.min.css) in html.
+In this project, I have downloaded files and linked minified versions (boostrapt-grid.min.css, boostrapt.min.css, bootstrap.bundle.min.js) in html.
