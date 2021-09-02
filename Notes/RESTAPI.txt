@@ -1,0 +1,36 @@
+GET:    Reading - Fetch - HTTP Request
+POST:   Creating - Add something new
+PUT:    Updating - Modify existing data
+DELETE: Deleting - Delete existing data
+
+
+Client  --- HTTP Request---->  Server
+       <--- HTTP Response---  
+
+
+HTTP Response -> Header + Body (JSON/XML)
+
+HTML will be in the body.
+
+
+server.js
+
+var express = require('express');
+var app = express();
+
+app.get('/path', function(request,response){
+  //Request comes from client and response will be sent to client.
+  response.send("Send response API");
+});
+
+app.post('/path', function(request,response){
+  //Extract data from request body and insert to database.
+});
+
+app.put('/path', function(request,response){
+  //Extract data from request body and update if it exist in database.
+});
+
+app.listen(3000, function(){
+  console.log("Listen on port 3000");
+});
