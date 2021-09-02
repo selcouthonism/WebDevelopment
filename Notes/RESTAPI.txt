@@ -1,3 +1,9 @@
+REST : Representational State Transfer
+A web API that obeys the REST constraints is informally described as RESTful. 
+RESTful web APIs are typically loosely based on HTTP methods to access resources via URL-encoded parameters and the use of JSON or XML to transmit data.
+
+
+-- HTTP methods --
 GET:    Reading - Fetch - HTTP Request
 POST:   Creating - Add something new
 PUT:    Updating - Modify existing data
